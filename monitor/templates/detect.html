@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detection Result</title>
+</head>
+<body>
+
+<h2>Detection Result</h2>
+
+<p>Temperature: {{ temperature }} °C</p>
+<p>Status: {{ status }}</p>
+
+<a href="/">Back Home</a>
+
+<script>
+    let message = "{{ status }}";
+
+    if (message.includes("Fire")) {
+        let speech = new SpeechSynthesisUtterance("Warning! Fire detected!");
+        speech.lang = "en-US";
+        speech.rate = 1;
+        speech.pitch = 1;
+        window.speechSynthesis.speak(speech);
+    } else {
+        let speech = new SpeechSynthesisUtterance("System is safe.");
+        window.speechSynthesis.speak(speech);
+    }
+</script>
+
+</body>
+</html>

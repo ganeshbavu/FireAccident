@@ -1,0 +1,11 @@
+<h2>Fire Alerts</h2>
+
+<ul>
+    {% for alert in alerts %}
+        <li>
+            {{ alert.temperature }} °C - {{ alert.status }} - {{ alert.created_at }}
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="/">Back Home</a>
